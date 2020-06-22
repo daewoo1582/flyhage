@@ -30,10 +30,10 @@ def home():
 
 @app.route('/success', methods=['POST'])
 def k_success():
-    list1_receive = request.form.getlist['list1_give[]']
-    list2_receive = request.form.getlist['list2_give[]']
-    list3_receive = request.form.getlist['list3_give[]']
-    list4_receive = request.form.getlist['list4_give[]']
+    list1_receive = request.form.getlist('list1_give[]')
+    list2_receive = request.form.getlist('list2_give[]')
+    list3_receive = request.form.getlist('list3_give[]')
+    list4_receive = request.form.getlist('list4_give[]')
 
     doc = {
         'list1': list1_receive,
