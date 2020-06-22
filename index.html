@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>Fly Search!</title>
+
+    <script>
+
+
+        $(document).ready(function () {
+            $('#fname1').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword1();
+                }
+            });
+
+            $('#fname2').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword2();
+                }
+            });
+
+            $('#fname3').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword3();
+                }
+            });
+            $('#fname4').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword4();
+                }
+            });
+
+        });
+
+        function Openkeyword1() {
+            let keywords1 = $('#fname1').val();
+            if (keywords1 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item">${keywords1}</li>`
+
+            $('#k_word1').append(temp_html);
+            $('#fname1').val('');
+        }
+
+        function Openkeyword2() {
+            let keywords2 = $('#fname2').val();
+            if (keywords2 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item">${keywords2}</li>`
+
+            $('#k_word2').append(temp_html);
+            $('#fname2').val('');
+        }
+
+        function Openkeyword3() {
+            let keywords3 = $('#fname3').val();
+            if (keywords3 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item">${keywords3}</li>`
+
+            $('#k_word3').append(temp_html);
+            $('#fname3').val('');
+        }
+
+        function Openkeyword4() {
+            let keywords4 = $('#fname4').val();
+            if (keywords4 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item">${keywords4}</li>`
+
+            $('#k_word4').append(temp_html);
+            $('#fname4').val('');
+        }
+
+        function getKeywords(keywordSelector){
+            const keyWords = [];
+            for (let i =0; i < $(keywordSelector).length; i++){
+                keyWords.push($(keywordSelector)[i].innerHTML);
+            }
+            return keyWords;
+        }
+
+        function success() {
+            let k_list1 = getKeywords('#k_word1 .list-group-item');
+            let k_list2 = getKeywords('#k_word2 .list-group-item');
+            let k_list3 = getKeywords('#k_word3 .list-group-item');
+            let k_list4 = getKeywords('#k_word4 .list-group-item');
+
+            // let all_keywords = (k_list1, k_list2, k_list3, k_list4)
+
+            if (k_list1 == '') {
+                alert('입력하세요!')
+                return
+            } else if (k_list2 == '') {
+                alert('입력하세요!')
+                return
+            } else if (k_list3 == '') {
+                alert('입력하세요!')
+                return
+            } else if (k_list4 == '') {
+                alert('입력하세요!')
+                return
+            }
+
+
+            $.ajax({
+                type: "POST",
+                url: "/success",
+                data: {
+                    list1_give: k_list1,
+                    list2_give: k_list2,
+                    list3_give: k_list3,
+                    list4_give: k_list4
+                },
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        alert(response['msg']);
+                        window.location.reload();
+                    }
+                }
+            });
+
+        }
+
+
+
+    </script>
+
+    <style>
+        #keyword_box {
+            display: inline-flex; 
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, Fly Search!</h1>
+            <p class="lead">마케터들의 워너비 Fly Search와 함께 키워드 마케팅 인사이트&마케팅 효율 UP!</p>
+            <hr class="my-4">
+            <p>키워드 조합하기 & 검색 랭크 보기!</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">알아보자!</a>
+        </div>
+
+        <h5>키워드 적어주세요!</h5>
+
+        <div id="keyword_box">
+            <div>
+                <div>
+                    <div id="input-form">
+                        <label for="fname">키워드1:</label>
+                        <input type="text" id="fname1" name="fname">
+                        <input type="button" onclick="Openkeyword1()" value="추가">
+                    </div>
+                    <div id='input-result'>
+                        <p><strong>결과</strong></p>
+                        <ul id="k_word1" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <div>
+                    <div id="input-form">
+                        <label for="fname">키워드2:</label>
+                        <input type="text" id="fname2" name="fname">
+                        <input type="button" onclick="Openkeyword2()" value="추가">
+                    </div>
+                    <div id='input-result'>
+                        <p><strong>결과</strong></p>
+                        <ul id="k_word2" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <div id="input-form">
+                        <label for="fname">키워드3:</label>
+                        <input type="text" id="fname3" name="fname">
+                        <input type="button" onclick="Openkeyword3()" value="추가">
+                    </div>
+                    <div id='input-result'>
+                        <p><strong>결과</strong></p>
+                        <ul id="k_word3" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <div id="input-form">
+                        <label for="fname">키워드4:</label>
+                        <input type="text" id="fname4" name="fname">
+                        <input type="button" onclick="Openkeyword4()" value="추가">
+                    </div>
+                    <div id='input-result'>
+                        <p><strong>결과</strong></p>
+                        <ul id="k_word4" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button onclick="success()" type="button" class="btn btn-success">Success</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div id="recommend" class="invisible">
+            <div class="item"><span class="text"></span></div>
+            <div class="item">Veritatis et <span class="text"></span></div>
+            <div class="item">ut aliquid ex <span class="text"></span> vero eos</div>
+        </div>
+    </div> -->
+</body>
+
+</html>
