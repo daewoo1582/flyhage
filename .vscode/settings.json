@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "c:\\Users\\Son\\Desktop\\sparta\\flyhage\\venv\\Scripts\\python.exe"
+=======
+    "python.pythonPath": "venv/bin/python"
+>>>>>>> 0a47e05f77bc2affe1aed77edc70e9f496f9721e
 }
