@@ -1,294 +1,329 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-    <title>Fly Search!</title>
+        <title>Fly Search!</title>
 
-    <script>
+        <script>
 
 
-        $(document).ready(function () {
-            $('#fname1').keyup(function (e) {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                    Openkeyword1();
-                }
+            $(document).ready(function () {
+                $('#fname1').keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        Openkeyword1();
+                    }
+                });
+
+                $('#fname2').keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        Openkeyword2();
+                    }
+                });
+
+                $('#fname3').keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        Openkeyword3();
+                    }
+                });
+                $('#fname4').keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        Openkeyword4();
+                    }
+                });
+
             });
 
-            $('#fname2').keyup(function (e) {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                    Openkeyword2();
+            function Openkeyword1() {
+                let keywords1 = $('#fname1').val();
+                if (keywords1 == '') {
+                    alert('키워드를 입력하세요!');
+                    return;
                 }
-            });
+                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords1}</li>`
 
-            $('#fname3').keyup(function (e) {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                    Openkeyword3();
+                $('#k_word1').append(temp_html);
+                $('#fname1').val('');
+            }
+
+            function Openkeyword2() {
+                let keywords2 = $('#fname2').val();
+                if (keywords2 == '') {
+                    alert('키워드를 입력하세요!');
+                    return;
                 }
-            });
-            $('#fname4').keyup(function (e) {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                    Openkeyword4();
+                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords2}</li>`
+
+                $('#k_word2').append(temp_html);
+                $('#fname2').val('');
+            }
+
+            function Openkeyword3() {
+                let keywords3 = $('#fname3').val();
+                if (keywords3 == '') {
+                    alert('키워드를 입력하세요!');
+                    return;
                 }
-            });
+                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords3}</li>`
 
-        });
-
-        function Openkeyword1() {
-            let keywords1 = $('#fname1').val();
-            if (keywords1 == '') {
-                alert('키워드를 입력하세요!');
-                return;
-            }
-            let temp_html = `<li class="list-group-item">${keywords1}</li>`
-
-            $('#k_word1').append(temp_html);
-            $('#fname1').val('');
-        }
-
-        function Openkeyword2() {
-            let keywords2 = $('#fname2').val();
-            if (keywords2 == '') {
-                alert('키워드를 입력하세요!');
-                return;
-            }
-            let temp_html = `<li class="list-group-item">${keywords2}</li>`
-
-            $('#k_word2').append(temp_html);
-            $('#fname2').val('');
-        }
-
-        function Openkeyword3() {
-            let keywords3 = $('#fname3').val();
-            if (keywords3 == '') {
-                alert('키워드를 입력하세요!');
-                return;
-            }
-            let temp_html = `<li class="list-group-item">${keywords3}</li>`
-
-            $('#k_word3').append(temp_html);
-            $('#fname3').val('');
-        }
-
-        function Openkeyword4() {
-            let keywords4 = $('#fname4').val();
-            if (keywords4 == '') {
-                alert('키워드를 입력하세요!');
-                return;
-            }
-            let temp_html = `<li class="list-group-item">${keywords4}</li>`
-
-            $('#k_word4').append(temp_html);
-            $('#fname4').val('');
-        }
-
-        function getKeywords(keywordSelector) {
-            const keyWords = [];
-            for (let i = 0; i < $(keywordSelector).length; i++) {
-                keyWords.push($(keywordSelector)[i].innerHTML);
-            }
-            return keyWords;
-        }
-
-        function success() {
-            let k_list1 = getKeywords('#k_word1 .list-group-item');
-            let k_list2 = getKeywords('#k_word2 .list-group-item');
-            let k_list3 = getKeywords('#k_word3 .list-group-item');
-            let k_list4 = getKeywords('#k_word4 .list-group-item');
-
-            let combinated_keyword = combinateKeyword(k_list1, k_list2)
-
-            for (let i = 0; i < combinated_keyword.length; i++) {
-                $('#combination').append(`<INPUT TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${combinated_keyword[i]}</INPUT>`);
+                $('#k_word3').append(temp_html);
+                $('#fname3').val('');
             }
 
-            // $.ajax({
-            //     type: "POST",
-            //     url: "/success",
-            //     data: {
-            //         list1_give: k_list1,
-            //         list2_give: k_list2,
-            //         list3_give: k_list3,
-            //         list4_give: k_list4
-            //     },
-            //     success: function (response) {
-            //         if (response['result'] == 'success') {
-            //             alert(response['msg']);
-            //             window.location.reload();
-            //         }
-            //     }
-            // });
-
-
-
-        }
-
-        function combinateKeyword(key_list_1, key_list_2, key_list_3, key_list_4) {
-            const keyWords = [];
-            for (let i = 0; i < key_list_1.length; i++) {
-                for (let j = 0; j < key_list_2.length; j++) {
-                    keyWords.push(key_list_1[i] + key_list_2[j]);
+            function Openkeyword4() {
+                let keywords4 = $('#fname4').val();
+                if (keywords4 == '') {
+                    alert('키워드를 입력하세요!');
+                    return;
                 }
+                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords4}</li>`
+
+                $('#k_word4').append(temp_html);
+                $('#fname4').val('');
             }
-            return keyWords;
-        }
+
+            function getKeywords(keywordSelector) {
+                const keyWords = [];
+                for (let i = 0; i < $(keywordSelector).length; i++) {
+                    keyWords.push($(keywordSelector)[i].innerHTML);
+                }
+                return keyWords;
+            }
+
+            function success() {
+                let k_list1 = getKeywords('#k_word1 .list-group-item');
+                let k_list2 = getKeywords('#k_word2 .list-group-item');
+                let k_list3 = getKeywords('#k_word3 .list-group-item');
+                let k_list4 = getKeywords('#k_word4 .list-group-item');
+
+                let combinated_keyword = combinateKeyword(k_list1, k_list2)
+
+                for (let i = 0; i < combinated_keyword.length; i++) {
+                    $('#combination').append(`<INPUT TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${combinated_keyword[i]}</INPUT>`);
+                }
+
+                // $.ajax({
+                //     type: "POST",
+                //     url: "/success",
+                //     data: {
+                //         list1_give: k_list1,
+                //         list2_give: k_list2,
+                //         list3_give: k_list3,
+                //         list4_give: k_list4
+                //     },
+                //     success: function (response) {
+                //         if (response['result'] == 'success') {
+                //             alert(response['msg']);
+                //             window.location.reload();
+                //         }
+                //     }
+                // });
+
+
+
+            }
+
+            function combinateKeyword(key_list_1, key_list_2, key_list_3, key_list_4) {
+                const keyWords = [];
+                for (let i = 0; i < key_list_1.length; i++) {
+                    for (let j = 0; j < key_list_2.length; j++) {
+                        keyWords.push(key_list_1[i] + key_list_2[j]);
+                    }
+                }
+                return keyWords;
+            }
 
 
 
 
-    </script>
+        </script>
 
-    <style>
-        .click {
-            margin: auto;
-        }
+        <style>
+            .click {
+                margin: auto;
+            }
 
-        #keyword_box {
-            display: flex;
-            justify-content: space-around;
-            border: 5px solid;
-        }
+            #keyword_box {
+                display: flex;
+                justify-content: space-around;
+                border: 0px solid;
+            }
 
-        .Choose {
-            margin: 500px, auto;
-        }
+            .Choose {
+                margin: 500px, auto;
+            }
 
-        #keyword_combination {
-            height: 300px;
-            border: 5px solid;
-            margin-top: 50px;
-        }
+            #keyword_combination {
+                height: 300px;
+                border: 0px solid;
+                margin-top: 50px;
+            }
 
-        #combi_content {
-            height: 270px;
-            border: 5px solid;
-        }
+            #combi_content {
+                height: 270px;
+                border: 0px solid;
+            }
 
-        #combi_action {
-            height: 30px;
-            border: 5px solid;
-        }
-        #main_body{
-            border: 5px solid;
-        }
-       .list-group {
-           height: 200px;
-           border: 1px dotted;
-           border-color: red;
-           overflow-y: scroll;
-       }
-    </style>
+            #combi_action {
+                height: 30px;
+                border: 0px solid;
+            }
 
-</head>
+            #main_body {
+                border-bottom: 1px solid #563d7c;
+                margin: 10px 0px;
+                padding: 20px;
+            }
 
-<body>
-    <main>
-        <div id="main_header">
-            <div>
-                <p>키워드 조합하고 클릭하세요! : 키워드 조합하기 & 검색 랭크 보기!</p>
+            .list-group {
+                height: 400px;
+                border: 1px solid;
+                border-color: lightgray;
+                overflow-y: scroll;
+            }
 
-                <!-- <a class="btn btn-primary btn-lg" href="#" role="button">알아보자!</a> -->
+            .bd-navbar {
+                background-color: #563d7c;
+            }
+
+            .keyword-text {
+                width: 150px;
+            }
+
+            .input-form {
+                margin: 5px;
+            }
+
+            .keyword-title {
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+            }
+            .click {
+                margin-top: 10px;
+                margin-right: 10px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.icons8.com/cotton/64/000000/area-chart.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                키워드 조합기
+            </a>
+        </nav>
+        <main>
+            <div id="main_header">
+                <!-- <p>키워드 조합하고 클릭하세요! : 키워드 조합하기 & 검색 랭크 보기!</p>
+                <h5>키워드 적어주세요!</h5> -->
             </div>
 
-            <h5>키워드 적어주세요!</h5>
-        </div>
-
-        <div id="main_body">
-            <div class="click">
-                <button onclick="success()" type="button" class="btn btn-success">KEYWORD MIX!</button>
+            <div style="margin: 20px 10px;line-height: 34px;">
+                <a href="#">
+                    <img src="https://img.icons8.com/dusk/64/000000/registry-editor.png" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+                    키위드 입력
+                </a>
             </div>
-            <div id="keyword_box">
-                
-                <div>
+            <div id="main_body">
+                <div id="keyword_box">
+
                     <div>
-                        <div class="input-form">
-                            <label for="fname" class="keyword-title">키워드1</label>
-                            <input type="text" id="fname1" name="fname">
-                            <input type="button" onclick="Openkeyword1()" value="추가">
+                        <div>
+                            <div class="input-form">
+                                <label for="fname" class="keyword-title">키워드1</label>
+                                <input type="text" class="keyword-text" id="fname1" name="fname">
+                                <input type="button" onclick="Openkeyword1()" value="추가">
+                            </div>
+                            <div class='input-result'>
+                                <ul id="k_word1" class="list-group">
+                                </ul>
+                            </div>
                         </div>
-                        <div class='input-result'>
-                            <ul id="k_word1" class="list-group">
-                            </ul>
+                    </div>
+
+
+                    <div>
+                        <div>
+                            <div class="input-form">
+                                <label for="fname" class="keyword-title">키워드2</label>
+                                <input type="text" class="keyword-text" id="fname2" name="fname">
+                                <input type="button" onclick="Openkeyword2()" value="추가">
+                            </div>
+                            <div class='input-result'>
+                                <ul id="k_word2" class="list-group">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div class="input-form">
+                                <label for="fname" class="keyword-title">키워드3</label>
+                                <input type="text" class="keyword-text" id="fname3" name="fname">
+                                <input type="button" onclick="Openkeyword3()" value="추가">
+                            </div>
+                            <div class='input-result'>
+                                <ul id="k_word3" class="list-group">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div class="input-form">
+                                <label for="fname" class="keyword-title">키워드4</label>
+                                <input type="text" class="keyword-text" id="fname4" name="fname">
+                                <input type="button" onclick="Openkeyword4()" value="추가">
+                            </div>
+                            <div class='input-result'>
+                                <ul id="k_word4" class="list-group">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-    
-    
-                <div>
-                    <div>
-                        <div class="input-form">
-                            <label for="fname" class="keyword-title">키워드2</label>
-                            <input type="text" id="fname2" name="fname">
-                            <input type="button" onclick="Openkeyword2()" value="추가">
-                        </div>
-                        <div class='input-result'>
-                            <ul id="k_word2" class="list-group">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <div class="input-form">
-                            <label for="fname" class="keyword-title">키워드3</label>
-                            <input type="text" id="fname3" name="fname">
-                            <input type="button" onclick="Openkeyword3()" value="추가">
-                        </div>
-                        <div class='input-result'>
-                            <ul id="k_word3" class="list-group">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-    
-                <div>
-                    <div>
-                        <div class="input-form">
-                            <label for="fname" class="keyword-title">키워드4</label>
-                            <input type="text" id="fname4" name="fname">
-                            <input type="button" onclick="Openkeyword4()" value="추가">
-                        </div>
-                        <div class='input-result'>
-                            <ul id="k_word4" class="list-group">
-                            </ul>
-                        </div>
-                    </div>
+                <div class="click d-flex justify-content-end">
+                    <button onclick="success()" type="button" class="btn btn-success btn-sm"
+                        style="background-color: #563d7c;">키워드 조합!</button>
                 </div>
             </div>
-        </div>
 
-        <div id="keyword_combination" class="Choose">
-            <div id="combi_content">
+            <div id="keyword_combination" class="Choose">
+                <div id="combi_content">
+                </div>
+                <div id="combi_action">
+                    <button>ok</button>
+                    <button>delete all</button>
+                </div>
             </div>
-            <div id="combi_action">
-                <button>ok</button>
-                <button>delete all</button>
-            </div>
-        </div>
 
-    </main>
-</body>
+        </main>
+    </body>
 
 </html>
