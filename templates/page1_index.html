@@ -112,6 +112,7 @@
             }
 
             function success() {
+                $('#combi_content').empty();
                 let k_list1 = getKeywords('#k_word1 .list-group-item');
                 let k_list2 = getKeywords('#k_word2 .list-group-item');
                 let k_list3 = getKeywords('#k_word3 .list-group-item');
@@ -120,27 +121,8 @@
                 let combinated_keyword = combinateKeyword(k_list1, k_list2)
 
                 for (let i = 0; i < combinated_keyword.length; i++) {
-                    $('#combination').append(`<INPUT TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${combinated_keyword[i]}</INPUT>`);
+                    $('#combi_content').append(`<div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${combinated_keyword[i]}</INPUT><div>`);
                 }
-
-                // $.ajax({
-                //     type: "POST",
-                //     url: "/success",
-                //     data: {
-                //         list1_give: k_list1,
-                //         list2_give: k_list2,
-                //         list3_give: k_list3,
-                //         list4_give: k_list4
-                //     },
-                //     success: function (response) {
-                //         if (response['result'] == 'success') {
-                //             alert(response['msg']);
-                //             window.location.reload();
-                //         }
-                //     }
-                // });
-
-
 
             }
 
@@ -148,7 +130,7 @@
                 const keyWords = [];
                 for (let i = 0; i < key_list_1.length; i++) {
                     for (let j = 0; j < key_list_2.length; j++) {
-                        keyWords.push(key_list_1[i] + key_list_2[j]);
+                        keyWords.push(key_list_1[i] + '+' + key_list_2[j]);
                     }
                 }
                 return keyWords;
@@ -188,6 +170,10 @@
             #combi_action {
                 height: 30px;
                 border: 0px solid;
+                margin-right: 20px;
+                margin-left: 300px;
+                display: inline-block;
+                float: right;
             }
 
             #main_body {
@@ -214,14 +200,46 @@
             .input-form {
                 margin: 5px;
             }
+            .input-form input[type='button'] {
+                line-height: 20px;
+                vertical-align: top;
+            }
 
             .keyword-title {
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: bold;
             }
+
             .click {
                 margin-top: 10px;
                 margin-right: 10px;
+            }
+
+            #combi_content {
+                border: 2px solid #563d7c;
+                height: 600px;
+                margin: 0px 15px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: left;
+                align-content: flex-start;
+                flex-wrap: wrap;
+                overflow-y: scroll;
+                padding: 20px 10px 10px 20px;
+            }
+
+            .input_div {
+                margin: 5px 10px;
+                padding: 2px;
+                width: 160px;
+            }
+
+            .input_check {
+                margin-right: 10px;
+            }
+
+            .left_10margin {
+                margin-left: 10px;
             }
         </style>
 
@@ -242,21 +260,20 @@
             </div>
 
             <div style="margin: 20px 10px;line-height: 34px;">
-                <a href="#">
+                <div>
                     <img src="https://img.icons8.com/dusk/64/000000/registry-editor.png" width="30" height="30"
                         class="d-inline-block align-top" alt="">
-                    키위드 입력
-                </a>
+                    <strong>키위드 입력</strong>
+                </div>
             </div>
             <div id="main_body">
                 <div id="keyword_box">
-
                     <div>
                         <div>
                             <div class="input-form">
                                 <label for="fname" class="keyword-title">키워드1</label>
                                 <input type="text" class="keyword-text" id="fname1" name="fname">
-                                <input type="button" onclick="Openkeyword1()" value="추가">
+                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword1()" value="추가">
                             </div>
                             <div class='input-result'>
                                 <ul id="k_word1" class="list-group">
@@ -271,7 +288,7 @@
                             <div class="input-form">
                                 <label for="fname" class="keyword-title">키워드2</label>
                                 <input type="text" class="keyword-text" id="fname2" name="fname">
-                                <input type="button" onclick="Openkeyword2()" value="추가">
+                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword2()" value="추가">
                             </div>
                             <div class='input-result'>
                                 <ul id="k_word2" class="list-group">
@@ -285,7 +302,7 @@
                             <div class="input-form">
                                 <label for="fname" class="keyword-title">키워드3</label>
                                 <input type="text" class="keyword-text" id="fname3" name="fname">
-                                <input type="button" onclick="Openkeyword3()" value="추가">
+                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword3()" value="추가">
                             </div>
                             <div class='input-result'>
                                 <ul id="k_word3" class="list-group">
@@ -299,7 +316,7 @@
                             <div class="input-form">
                                 <label for="fname" class="keyword-title">키워드4</label>
                                 <input type="text" class="keyword-text" id="fname4" name="fname">
-                                <input type="button" onclick="Openkeyword4()" value="추가">
+                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword4()" value="추가">
                             </div>
                             <div class='input-result'>
                                 <ul id="k_word4" class="list-group">
@@ -309,17 +326,21 @@
                     </div>
                 </div>
                 <div class="click d-flex justify-content-end">
-                    <button onclick="success()" type="button" class="btn btn-success btn-sm"
-                        style="background-color: #563d7c;">키워드 조합!</button>
+                    <button onclick="success()" type="button" class="btn btn-dark btn-sm">키워드 조합!</button>
                 </div>
             </div>
 
             <div id="keyword_combination" class="Choose">
-                <div id="combi_content">
+                <div style="margin: 5px 10px;line-height: 34px;">
+                    <img src="https://img.icons8.com/nolan/64/report-card.png" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+                    <strong>조합 결과</strong>
+                    <div id="combi_action">
+                        <button type="button" class="left_10margin btn btn-dark btn-sm">저장</button>
+                        <button type="button" class="left_10margin btn btn-dark btn-sm">선택취소</button>
+                    </div>
                 </div>
-                <div id="combi_action">
-                    <button>ok</button>
-                    <button>delete all</button>
+                <div id="combi_content">
                 </div>
             </div>
 
