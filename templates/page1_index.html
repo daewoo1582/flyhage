@@ -1,350 +1,481 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-        <title>Fly Search!</title>
+    <title>Fly Search!</title>
 
-        <script>
+    <script>
 
 
-            $(document).ready(function () {
-                $('#fname1').keyup(function (e) {
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-                        Openkeyword1();
-                    }
-                });
-
-                $('#fname2').keyup(function (e) {
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-                        Openkeyword2();
-                    }
-                });
-
-                $('#fname3').keyup(function (e) {
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-                        Openkeyword3();
-                    }
-                });
-                $('#fname4').keyup(function (e) {
-                    if (e.keyCode == 13) {
-                        e.preventDefault();
-                        Openkeyword4();
-                    }
-                });
-
+        $(document).ready(function () {
+            $('#fname1').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword1();
+                }
             });
 
-            function Openkeyword1() {
-                let keywords1 = $('#fname1').val();
-                if (keywords1 == '') {
-                    alert('키워드를 입력하세요!');
-                    return;
+            $('#fname2').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword2();
                 }
-                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords1}</li>`
+            });
 
-                $('#k_word1').append(temp_html);
-                $('#fname1').val('');
-            }
-
-            function Openkeyword2() {
-                let keywords2 = $('#fname2').val();
-                if (keywords2 == '') {
-                    alert('키워드를 입력하세요!');
-                    return;
+            $('#fname3').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword3();
                 }
-                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords2}</li>`
-
-                $('#k_word2').append(temp_html);
-                $('#fname2').val('');
-            }
-
-            function Openkeyword3() {
-                let keywords3 = $('#fname3').val();
-                if (keywords3 == '') {
-                    alert('키워드를 입력하세요!');
-                    return;
+            });
+            $('#fname4').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    Openkeyword4();
                 }
-                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords3}</li>`
+            });
 
-                $('#k_word3').append(temp_html);
-                $('#fname3').val('');
+        });
+
+        function Openkeyword1() {
+            let keywords1 = $('#fname1').val();
+            if (keywords1 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords1}</li>`
+
+            $('#k_word1').append(temp_html);
+            $('#fname1').val('');
+        }
+
+        function Openkeyword2() {
+            let keywords2 = $('#fname2').val();
+            if (keywords2 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords2}</li>`
+
+            $('#k_word2').append(temp_html);
+            $('#fname2').val('');
+        }
+
+        function Openkeyword3() {
+            let keywords3 = $('#fname3').val();
+            if (keywords3 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords3}</li>`
+
+            $('#k_word3').append(temp_html);
+            $('#fname3').val('');
+        }
+
+        function Openkeyword4() {
+            let keywords4 = $('#fname4').val();
+            if (keywords4 == '') {
+                alert('키워드를 입력하세요!');
+                return;
+            }
+            let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords4}</li>`
+
+            $('#k_word4').append(temp_html);
+            $('#fname4').val('');
+        }
+
+        function getKeywords(keywordSelector) {
+            const keyWords = [];
+            for (let i = 0; i < $(keywordSelector).length; i++) {
+                keyWords.push($(keywordSelector)[i].innerHTML);
+            }
+            return keyWords;
+        }
+
+        function success() {
+            $('#combi_content').empty();
+            let k_list1 = getKeywords('#k_word1 .list-group-item');
+            let k_list2 = getKeywords('#k_word2 .list-group-item');
+            let k_list3 = getKeywords('#k_word3 .list-group-item');
+            let k_list4 = getKeywords('#k_word4 .list-group-item');
+
+
+
+            for (let i = 0; i < total_combinated_keywords.length; i++) {
+                $('#combi_content').append(`<div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${total_combinated_keywords[i].join('+')}</INPUT><div>`);
             }
 
-            function Openkeyword4() {
-                let keywords4 = $('#fname4').val();
-                if (keywords4 == '') {
-                    alert('키워드를 입력하세요!');
-                    return;
-                }
-                let temp_html = `<li class="list-group-item list-group-item-light py-2">${keywords4}</li>`
-
-                $('#k_word4').append(temp_html);
-                $('#fname4').val('');
-            }
-
-            function getKeywords(keywordSelector) {
-                const keyWords = [];
-                for (let i = 0; i < $(keywordSelector).length; i++) {
-                    keyWords.push($(keywordSelector)[i].innerHTML);
-                }
-                return keyWords;
-            }
-
-            function success() {
-                $('#combi_content').empty();
-                let k_list1 = getKeywords('#k_word1 .list-group-item');
-                let k_list2 = getKeywords('#k_word2 .list-group-item');
-                let k_list3 = getKeywords('#k_word3 .list-group-item');
-                let k_list4 = getKeywords('#k_word4 .list-group-item');
-
-                let combinated_keyword = combinateKeyword(k_list1, k_list2)
-
-                for (let i = 0; i < combinated_keyword.length; i++) {
-                    $('#combi_content').append(`<div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${combinated_keyword[i]}</INPUT><div>`);
-                }
-
-            }
-
-            function combinateKeyword(key_list_1, key_list_2, key_list_3, key_list_4) {
-                const keyWords = [];
-                for (let i = 0; i < key_list_1.length; i++) {
-                    for (let j = 0; j < key_list_2.length; j++) {
-                        keyWords.push(key_list_1[i] + '+' + key_list_2[j]);
-                    }
-                }
-                return keyWords;
-            }
+        }
 
 
 
+    </script>
 
-        </script>
+    <style>
+        .click {
+            margin: auto;
+        }
 
-        <style>
-            .click {
-                margin: auto;
-            }
+        #keyword_box {
+            display: flex;
+            justify-content: space-around;
+            border: 0px solid;
+        }
 
-            #keyword_box {
-                display: flex;
-                justify-content: space-around;
-                border: 0px solid;
-            }
+        .Choose {
+            margin: 500px, auto;
+        }
 
-            .Choose {
-                margin: 500px, auto;
-            }
+        #keyword_combination {
+            height: 300px;
+            border: 0px solid;
+            margin-top: 50px;
+        }
 
-            #keyword_combination {
-                height: 300px;
-                border: 0px solid;
-                margin-top: 50px;
-            }
+        #combi_content {
+            height: 270px;
+            border: 0px solid;
+        }
 
-            #combi_content {
-                height: 270px;
-                border: 0px solid;
-            }
+        #combi_action {
+            height: 30px;
+            border: 0px solid;
+            margin-right: 20px;
+            margin-left: 300px;
+            display: inline-block;
+            float: right;
+        }
 
-            #combi_action {
-                height: 30px;
-                border: 0px solid;
-                margin-right: 20px;
-                margin-left: 300px;
-                display: inline-block;
-                float: right;
-            }
+        #main_body {
+            border-bottom: 1px solid #563d7c;
+            margin: 10px 0px;
+            padding: 20px;
+        }
 
-            #main_body {
-                border-bottom: 1px solid #563d7c;
-                margin: 10px 0px;
-                padding: 20px;
-            }
+        .list-group {
+            height: 400px;
+            border: 1px solid;
+            border-color: lightgray;
+            overflow-y: scroll;
+        }
 
-            .list-group {
-                height: 400px;
-                border: 1px solid;
-                border-color: lightgray;
-                overflow-y: scroll;
-            }
+        .bd-navbar {
+            background-color: #563d7c;
+        }
 
-            .bd-navbar {
-                background-color: #563d7c;
-            }
+        .keyword-text {
+            width: 150px;
+        }
 
-            .keyword-text {
-                width: 150px;
-            }
+        .input-form {
+            margin: 5px;
+        }
 
-            .input-form {
-                margin: 5px;
-            }
-            .input-form input[type='button'] {
-                line-height: 20px;
-                vertical-align: top;
-            }
+        .input-form input[type='button'] {
+            line-height: 20px;
+            vertical-align: top;
+        }
 
-            .keyword-title {
-                font-family: Arial, Helvetica, sans-serif;
-                font-weight: bold;
-            }
+        .keyword-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
 
-            .click {
-                margin-top: 10px;
-                margin-right: 10px;
-            }
+        .click {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
 
-            #combi_content {
-                border: 2px solid #563d7c;
-                height: 600px;
-                margin: 0px 15px;
-                border-radius: 5px;
-                display: flex;
-                justify-content: left;
-                align-content: flex-start;
-                flex-wrap: wrap;
-                overflow-y: scroll;
-                padding: 20px 10px 10px 20px;
-            }
+        #combi_content {
+            border: 2px solid #563d7c;
+            height: 600px;
+            margin: 0px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: left;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            overflow-y: scroll;
+            padding: 20px 10px 10px 20px;
+        }
 
-            .input_div {
-                margin: 5px 10px;
-                padding: 2px;
-                width: 160px;
-            }
+        .input_div {
+            margin: 5px 10px;
+            padding: 2px;
+            width: 200px;
+        }
 
-            .input_check {
-                margin-right: 10px;
-            }
+        .input_check {
+            margin-right: 10px;
+        }
 
-            .left_10margin {
-                margin-left: 10px;
-            }
-        </style>
+        .left_10margin {
+            margin-left: 10px;
+        }
+    </style>
 
-    </head>
+</head>
 
-    <body>
-        <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-            <a class="navbar-brand" href="#">
-                <img src="https://img.icons8.com/cotton/64/000000/area-chart.png" width="30" height="30"
-                    class="d-inline-block align-top" alt="">
-                키워드 조합기
-            </a>
-        </nav>
-        <main>
-            <div id="main_header">
-                <!-- <p>키워드 조합하고 클릭하세요! : 키워드 조합하기 & 검색 랭크 보기!</p>
+<body>
+    <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+        <a class="navbar-brand" href="#">
+            <img src="https://img.icons8.com/cotton/64/000000/area-chart.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">
+            키워드 조합기
+        </a>
+    </nav>
+    <main>
+        <div id="main_header">
+            <!-- <p>키워드 조합하고 클릭하세요! : 키워드 조합하기 & 검색 랭크 보기!</p>
                 <h5>키워드 적어주세요!</h5> -->
-            </div>
+        </div>
 
-            <div style="margin: 20px 10px;line-height: 34px;">
+        <div style="margin: 20px 10px;line-height: 34px;">
+            <div>
+                <img src="https://img.icons8.com/dusk/64/000000/registry-editor.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                <strong>키위드 입력</strong>
+            </div>
+        </div>
+        <div id="main_body">
+            <div id="keyword_box">
                 <div>
-                    <img src="https://img.icons8.com/dusk/64/000000/registry-editor.png" width="30" height="30"
-                        class="d-inline-block align-top" alt="">
-                    <strong>키위드 입력</strong>
+                    <div>
+                        <div class="input-form">
+                            <label for="fname" class="keyword-title">키워드1</label>
+                            <input type="text" class="keyword-text" id="fname1" name="fname">
+                            <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword1()" value="추가">
+                        </div>
+                        <div class='input-result'>
+                            <ul id="k_word1" class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div>
+                        <div class="input-form">
+                            <label for="fname" class="keyword-title">키워드2</label>
+                            <input type="text" class="keyword-text" id="fname2" name="fname">
+                            <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword2()" value="추가">
+                        </div>
+                        <div class='input-result'>
+                            <ul id="k_word2" class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <div class="input-form">
+                            <label for="fname" class="keyword-title">키워드3</label>
+                            <input type="text" class="keyword-text" id="fname3" name="fname">
+                            <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword3()" value="추가">
+                        </div>
+                        <div class='input-result'>
+                            <ul id="k_word3" class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <div class="input-form">
+                            <label for="fname" class="keyword-title">키워드4</label>
+                            <input type="text" class="keyword-text" id="fname4" name="fname">
+                            <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword4()" value="추가">
+                        </div>
+                        <div class='input-result'>
+                            <ul id="k_word4" class="list-group">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="main_body">
-                <div id="keyword_box">
-                    <div>
-                        <div>
-                            <div class="input-form">
-                                <label for="fname" class="keyword-title">키워드1</label>
-                                <input type="text" class="keyword-text" id="fname1" name="fname">
-                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword1()" value="추가">
-                            </div>
-                            <div class='input-result'>
-                                <ul id="k_word1" class="list-group">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="click d-flex justify-content-end">
+                <button onclick="success()" type="button" class="btn btn-dark btn-sm">키워드 조합!</button>
+            </div>
+        </div>
 
-
-                    <div>
-                        <div>
-                            <div class="input-form">
-                                <label for="fname" class="keyword-title">키워드2</label>
-                                <input type="text" class="keyword-text" id="fname2" name="fname">
-                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword2()" value="추가">
-                            </div>
-                            <div class='input-result'>
-                                <ul id="k_word2" class="list-group">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <div class="input-form">
-                                <label for="fname" class="keyword-title">키워드3</label>
-                                <input type="text" class="keyword-text" id="fname3" name="fname">
-                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword3()" value="추가">
-                            </div>
-                            <div class='input-result'>
-                                <ul id="k_word3" class="list-group">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <div class="input-form">
-                                <label for="fname" class="keyword-title">키워드4</label>
-                                <input type="text" class="keyword-text" id="fname4" name="fname">
-                                <input type="button" class="btn btn-dark btn-sm" onclick="Openkeyword4()" value="추가">
-                            </div>
-                            <div class='input-result'>
-                                <ul id="k_word4" class="list-group">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="click d-flex justify-content-end">
-                    <button onclick="success()" type="button" class="btn btn-dark btn-sm">키워드 조합!</button>
+        <div id="keyword_combination" class="Choose">
+            <div style="margin: 5px 10px;line-height: 34px;">
+                <img src="https://img.icons8.com/nolan/64/report-card.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                <strong>조합 결과</strong>
+                <div id="combi_action">
+                    <button type="button" class="left_10margin btn btn-dark btn-sm">저장</button>
+                    <button type="button" class="left_10margin btn btn-dark btn-sm">전체선택</button>
+                    <button type="button" class="left_10margin btn btn-dark btn-sm">선택취소</button>
                 </div>
             </div>
+            <div id="combi_content">
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+2</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+3</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+4</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+1</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+3</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+4</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+1</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+2</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+4</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+1</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+2</INPUT>
+                </div>
+                <div class="input_div">
+                    <INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+3</INPUT>
+                </div>
 
-            <div id="keyword_combination" class="Choose">
-                <div style="margin: 5px 10px;line-height: 34px;">
-                    <img src="https://img.icons8.com/nolan/64/report-card.png" width="30" height="30"
-                        class="d-inline-block align-top" alt="">
-                    <strong>조합 결과</strong>
-                    <div id="combi_action">
-                        <button type="button" class="left_10margin btn btn-dark btn-sm">저장</button>
-                        <button type="button" class="left_10margin btn btn-dark btn-sm">선택취소</button>
-                    </div>
+                <!-- 경계선 필요합니다! -->
+
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+2+3</INPUT>
                 </div>
-                <div id="combi_content">
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+2+4</INPUT>
                 </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+3+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+3+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+4+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+4+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+1+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+1+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+3+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+3+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+4+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+4+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+1+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+1+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+2+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+2+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+4+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+4+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+1+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+1+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+2+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+2+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+3+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+3+2</INPUT>
+                </div>
+
+                <!-- 경계선 필요합니다! -->
+
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1+2+3+4>1+2+3+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+2+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+3+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+3+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+4+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>1+4+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+1+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+1+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+3+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+3+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+4+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>2+4+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+1+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+1+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+2+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+2+4</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+4+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>3+4+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+1+2</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+1+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+2+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+2+3</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+3+1</INPUT>
+                </div>
+                <div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>4+3+2</INPUT>
+                </div>
+
+
             </div>
+        </div>
 
-        </main>
-    </body>
+    </main>
+</body>
 
 </html>
