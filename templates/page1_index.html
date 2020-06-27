@@ -114,17 +114,26 @@
 
         function success() {
             $('#combi_content').empty();
-            let k_list1 = getKeywords('#k_word1 .list-group-item');
-            let k_list2 = getKeywords('#k_word2 .list-group-item');
-            let k_list3 = getKeywords('#k_word3 .list-group-item');
-            let k_list4 = getKeywords('#k_word4 .list-group-item');
+            let keyArray = [];
+            keyArray.append(getKeywords('#k_word1 .list-group-item'));
+            keyArray.append(getKeywords('#k_word2 .list-group-item'));
+            keyArray.append(getKeywords('#k_word3 .list-group-item'));
+            keyArray.append(getKeywords('#k_word4 .list-group-item'));
 
+            let key_list1 = keyArray['#k_word1 .list-group-item'];
+            let key_list2 = keyArray['#k_word2 .list-group-item'];
+            let key_list3 = keyArray['#k_word3 .list-group-item'];
+            let key_list4 = keyArray['#k_word4 .list-group-item'];
+            
+            makekeyword(key_list1,key_list2,key_list3,key_list4);
+        }
 
-
-            for (let i = 0; i < total_combinated_keywords.length; i++) {
-                $('#combi_content').append(`<div class="input_div"><INPUT class="input_check" TYPE=CHECKBOX NAME=chkSample1 VALUE=1>${total_combinated_keywords[i].join('+')}</INPUT><div>`);
+        function makekeyword(a,b,c,d) {
+            let combikeywords = [];
+            for (let i = 0; i < $(combiOption).length; i++) {
+                combikeywords.push($(combiOption))[i].
             }
-
+        
         }
 
         $(function () {
@@ -139,9 +148,13 @@
             });
         });
 
-        // function getKeywordslist {
-        //     $('#input_check').val()
-        // }
+        function getKeywordslist() {
+            let checkedOptions = []
+            $("input:checkbox[name=chkSample1]:checked").each(function () {
+                checkedOptions.push($(this).val());
+            });
+            return checkedOptions.split('+');
+        }
 
 
 
@@ -354,7 +367,8 @@
                     class="d-inline-block align-top" alt="">
                 <strong>조합 결과</strong>
                 <div id="combi_action">
-                    <button id="download" type="button" class="left_10margin btn btn-dark btn-sm">다운로드</button>
+                    <button onclick="success" id="download" type="button"
+                        class="left_10margin btn btn-dark btn-sm">다운로드</button>
                     <button id="all_check" type="button" class="left_10margin btn btn-dark btn-sm">전체선택</button>
                     <button id="all_cancel" type="button" class="left_10margin btn btn-dark btn-sm">선택취소</button>
                 </div>
